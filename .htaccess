@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{SERVER_PORT} !=443
+RewriteRule ^(.*)$ https://www.institut-juno.de/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} !^www\.institut-juno\.de [NC]
+RewriteRule ^(.*)$ https://www.institut-juno.de/$1 [R=301,L]
