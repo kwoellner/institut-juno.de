@@ -1,25 +1,19 @@
 name: Publish Website institut-juno.de
-
 on:
   push:
     branches: [ main ]
-
 jobs:
-  SFTP-Deploy-Action:
-    name: SFTP-Deploy-Action
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          fetch-depth: 0
-          ref: main
-      - name: SFTP-Deploy-Action
-        uses: milanmk/actions-file-deployer@master
-        with:
-          remote-protocol: sftp
-          remote-host: ${{ secrets.JUNO_FTP_HOSTNAME }}
-          remote-user: ${{ secrets.JUNO_FTP_USERNAME }}
-          remote-password: ${{ secrets.JUNO_FTP_PASSWORD }}
-          remote-path: /relaunch
-          remote-port: 22
+          server: ${{ secrets.JUNO_FTP_HOSTNAME }}
+          username: ${{ secrets.JUNO_FTP_USERNAME }}
+          password: ${{ secrets.JUNO_FTP_PASSWORD }}
+          server-dir: ./relaunch
+          protocol: 22
