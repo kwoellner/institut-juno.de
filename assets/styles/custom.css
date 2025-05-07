@@ -63,6 +63,7 @@ body {
     font-weight: 300;
     line-height: 30px;
     color: #0f3233;
+    background-color: #f7eed6;
 }
 body {
     position: relative;
@@ -242,7 +243,7 @@ hr {
 }
 
 .bg-dark-beige {
-    background-color: #F7eed6;
+    background-color: #f7eed6;
 }
 
 .bg-beige {
