@@ -21,3 +21,7 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+            vendor/jquery/src/**
+            vendor/jquery/test/**
+            vendor/jquery-touchswipe/demos/**
+            vendor/jquery-touchswipe/docs/**
