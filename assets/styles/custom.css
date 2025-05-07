@@ -612,7 +612,7 @@ nav.navbar .navbar-collapse {
         left: 50%;
         transform: translateX(-50%);
         top: 90px;
-        width: fit-content;
+        width: auto;
         height: calc(100vh - 90px);
     }
 
