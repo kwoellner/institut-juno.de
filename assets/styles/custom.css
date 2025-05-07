@@ -620,7 +620,7 @@ nav.navbar .navbar-collapse {
         position: fixed;
         top: 135px;
         left: unset;
-        right: 30px;
+        right: 45px;
         width: 130px;
         height: 130px;
         margin-left: auto;
@@ -806,6 +806,16 @@ body.imprint h4 {
 
 body.imprint p {
     margin-bottom: 1.5rem;
+}
+
+#imprint {
+    margin-top: 60px;
+}
+
+@media only screen and (min-width: 992px) {
+    #imprint {
+        margin-top: 90px;
+    }
 }
 
 /* Footer */

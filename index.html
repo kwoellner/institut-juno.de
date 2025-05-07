@@ -31,14 +31,14 @@
     <meta name="msapplication-TileImage" content="assets/images/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body data-bs-spy="scroll" data-bs-offset="80" data-bs-target=".navbar-collapse" tabindex="0">
+<body id="top" data-bs-spy="scroll" data-bs-offset="80" data-bs-target=".navbar-collapse" tabindex="0">
 <nav id="navbar" class="navbar navbar-light fixed-top bg-white">
     <div class="container">
         <a class="navbar-brand align-items-center" href="./" title="Institut Juno"><img src="assets/images/juno_logo.svg" width="150" class="logo" alt="Logo"></a>
         <button class="navbar-toggler position-relative d-flex align-items-center collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation"><span></span></span></button>
         <div id="navbar-collapse" class="navbar-collapse collapse">
             <div class="navbar-nav navbar-nav-scroll">
-                <a class="nav-link d-flex align-self-center active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="./">Home</a>
+                <a class="nav-link d-flex align-self-center" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#top">Home</a>
                 <a class="nav-link d-flex align-self-center" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#leistungen">Leistungen</a>
                 <a class="nav-link d-flex align-self-center" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#philosophie">Philosophie</a>
                 <a class="nav-link d-flex align-self-center" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="#ueberuns">Über uns</a>
@@ -72,7 +72,7 @@
 
 <section id="header">
     <div class="container-fluid h-100 px-0 pt-5 py-lg-5">
-        <div class="container h-100 px-0">
+        <div class="container h-100">
             <div class="row gx-0 h-100">
                 <div class="d-flex flex-column h-100 col-12 col-lg-10 offset-lg-1 pt-4 pt-lg-5 pb-5 justify-content-center text-white">
                     <h1 class="text-white">Die Lösung ist oft einfacher, als wir denken, wir müssen nur bereit sein, sie zu sehen.</h1>
@@ -101,13 +101,13 @@
                 <div class="col-12 col-lg-4 mb-5 text-center">
                     <img src="assets/images/icon_check.svg" width="30" height="30" alt="Check">
                     <div class="line"></div>
-                    <p class="mb-2 font-size-50"><span class="counter" data-target="1000">0</span> +</p>
+                    <p class="mb-2 font-size-50"><span class="counter" data-offset="980" data-target="1000">980</span> +</p>
                     <p class="mb-0 font-size-20 lh-28">geschriebene<br>Gutachten</p>
                 </div>
                 <div class="col-12 col-lg-4 mb-5 text-center">
                     <img src="assets/images/icon_check.svg" width="30" height="30" alt="Check">
                     <div class="line"></div>
-                    <p class="mb-2 font-size-50"><span class="counter" data-target="100">0</span> %</p>
+                    <p class="mb-2 font-size-50"><span class="counter" data-offset="80" data-target="100">80</span> %</p>
                     <p class="mb-0 font-size-20 lh-28">Vertrauen &amp;<br>Diskretion</p>
                 </div>
             </div>
@@ -499,18 +499,21 @@
 <script>
     $(document).ready(function() {
         $('.nav-link').click(function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-
             const divId = $(this).attr('href');
-            const offset = 80;
-            $('html, body').animate({
-                scrollTop: $(divId).offset().top - offset
-            }, 100);
-            const menuToggle = document.getElementById('navbar-collapse');
-            if (menuToggle.classList.contains('show')) {
-                const bsCollapse = new bootstrap.Collapse(menuToggle);
-                bsCollapse.toggle();
+            if (divId.charAt(0) === '#') {
+                e.preventDefault();
+                e.stopPropagation();
+
+
+                const offset = 80;
+                $('html, body').animate({
+                    scrollTop: $(divId).offset().top - offset
+                }, 100);
+                const menuToggle = document.getElementById('navbar-collapse');
+                if (menuToggle.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(menuToggle);
+                    bsCollapse.toggle();
+                }
             }
         });
 
@@ -530,26 +533,22 @@
                 if (entry.isIntersecting) {
                     const el = entry.target;
                     const target = +el.dataset.target;
-                    let current = 0;
-                    const duration = 1000;
-                    const stepTime = Math.max(20, duration / target);
-
+                    let current = el.dataset.offset || 0;
                     const step = () => {
                         if (current < target) {
                             current++;
                             el.textContent = current;
-                            setTimeout(step, stepTime);
+                            setTimeout(step, 50);
                         } else {
                             el.textContent = target;
                         }
                     };
-
                     step();
-                    obs.unobserve(el); // nur einmal abspielen
+                    obs.unobserve(el);
                 }
             });
         }, {
-            threshold: 0.5 // wenn 50 % des Elements sichtbar sind
+            threshold: 0.5
         });
 
         counters.forEach(counter => observer.observe(counter));

@@ -32,17 +32,17 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body class="imprint">
-<nav id="navbar" class="navbar navbar-light sticky-top bg-white">
+<nav id="navbar" class="navbar navbar-light fixed-top bg-white">
     <div class="container">
         <a class="navbar-brand align-items-center" href="./" title="Institut Juno"><img src="assets/images/juno_logo.svg" width="150" class="logo" alt="Logo"></a>
         <button class="navbar-toggler position-relative d-flex align-items-center collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation"><span></span></span></button>
         <div id="navbar-collapse" class="navbar-collapse collapse">
             <div class="navbar-nav navbar-nav-scroll">
-                <a class="nav-link d-flex align-self-center active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="./">Home</a>
-                <a class="nav-link d-flex align-self-center" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="./#leistungen">Leistungen</a>
-                <a class="nav-link d-flex align-self-center" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="./#philosophie">Philosophie</a>
-                <a class="nav-link d-flex align-self-center" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="./#ueberuns">Über uns</a>
-                <a class="nav-link d-flex align-self-center" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="./#kontakt">Kontakt</a>
+                <a class="nav-link d-flex align-self-center" href="./">Home</a>
+                <a class="nav-link d-flex align-self-center" href="./#leistungen">Leistungen</a>
+                <a class="nav-link d-flex align-self-center" href="./#philosophie">Philosophie</a>
+                <a class="nav-link d-flex align-self-center" href="./#ueberuns">Über uns</a>
+                <a class="nav-link d-flex align-self-center" href="./#kontakt">Kontakt</a>
             </div>
             <div class="d-flex flex-row justify-content-center w-100 p-4 bg-white">
                 <div class="w-50 text-end"><a class="btn btn-outline-secondary me-2" href="mailto:kontakt@institut-juno.de">E-Mail</a></div>
@@ -53,7 +53,7 @@
 </nav>
 
 <article>
-    <section>
+    <section id="imprint">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 offset-sm-2 mt-5">
@@ -230,34 +230,5 @@
 <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/scripts/custom.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.nav-link').click(function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const divId = $(this).attr('href');
-            const offset = 80;
-            $('html, body').animate({
-                scrollTop: $(divId).offset().top - offset
-            }, 100);
-            const menuToggle = document.getElementById('navbar-collapse');
-            if (menuToggle.classList.contains('show')) {
-                const bsCollapse = new bootstrap.Collapse(menuToggle);
-                bsCollapse.toggle();
-            }
-        });
-
-        $('.carousel').swipe({
-            swipe: function(event, direction) {
-                if (direction === 'left') {
-                    $(this).carousel('next');
-                } else if(direction === 'right') {
-                    $(this).carousel('prev');
-                }
-            }
-        });
-    })
-</script>
 </body>
 </html>
