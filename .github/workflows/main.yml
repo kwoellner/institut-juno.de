@@ -15,5 +15,5 @@ jobs:
           server: ${{ secrets.JUNO_FTP_HOSTNAME }}
           username: ${{ secrets.JUNO_FTP_USERNAME }}
           password: ${{ secrets.JUNO_FTP_PASSWORD }}
-          server-dir: ./relaunch/
+          server-dir: ./
           protocol: ftps
