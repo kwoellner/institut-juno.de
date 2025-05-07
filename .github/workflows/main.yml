@@ -17,3 +17,7 @@ jobs:
           password: ${{ secrets.JUNO_FTP_PASSWORD }}
           server-dir: ./
           protocol: ftps
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
