@@ -55,11 +55,14 @@
 
 html,
 body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 30px;
-    color: #0d222f;
+    color: #0f3233;
 }
 body {
     position: relative;
@@ -70,11 +73,13 @@ h1,
 h2,
 h3,
 h4 {
-    color: #0d222f;
+    color: #0f3233;
 }
 
 h1 {
     font-family: 'Morion', sans-serif;
+    font-size: 30px;
+    line-height: 40px;
 }
 
 h2 {
@@ -82,10 +87,10 @@ h2 {
     margin-bottom: 0;
     font-size: 16px;
     font-weight: 500;
-    line-height: 50px;
+    line-height: 40px;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: #ac8f27;
 }
 
@@ -99,10 +104,15 @@ h3 {
     line-height: 35px;
     overflow: hidden;
     text-align: center;
-    color: #002948;
+    color: #0f3233;
 }
 
 @media only screen and (min-width: 992px) {
+    h1 {
+        font-size: 70px;
+        line-height: 85px;
+    }
+
     h3 {
         font-size: 40px;
         line-height: 50px;
@@ -129,7 +139,7 @@ strong {
 }
 
 em {
-    color: #17365d;
+    color: #0f3233;
     font-style: normal;
     font-weight: 500;
 }
@@ -137,7 +147,7 @@ em {
 hr {
     margin-top: 40px;
     margin-bottom: 40px;
-    background-color: #17365d;
+    background-color: #0f3233;
     opacity: 1;
 }
 
@@ -145,23 +155,39 @@ hr {
     box-shadow: none !important;
 }
 
+.border-top {
+    border-color: #0f3233 !important;
+}
+
+.border-bottom {
+    border-color: #0f3233 !important;
+}
+
 .font-size-20 {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 30px;
     text-transform: none;
 }
 
 .font-size-30 {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 30px;
+    text-transform: none;
+}
+
+.font-size-48 {
+    font-family: 'Morion', 'sans-serif';
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 45px;
     text-transform: none;
 }
 
 .font-size-50 {
     font-family: 'Morion', 'sans-serif';
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
     line-height: 45px;
     text-transform: none;
@@ -170,15 +196,23 @@ hr {
 @media only screen and (min-width: 992px) {
     .font-size-20 {
         font-size: 20px;
-        font-weight: 400;
+        font-weight: 300;
         line-height: 32px;
         text-transform: none;
     }
 
     .font-size-30 {
         font-size: 30px;
-        font-weight: 400;
+        font-weight: 300;
         line-height: 50px;
+        text-transform: none;
+    }
+
+    .font-size-48 {
+        font-family: 'Morion', 'sans-serif';
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 65px;
         text-transform: none;
     }
 
@@ -191,6 +225,22 @@ hr {
     }
 }
 
+.ls-1 {
+    letter-spacing: 1px;
+}
+
+.ls-2 {
+    letter-spacing: 2px;
+}
+
+.lh-24 {
+    line-height: 24px;
+}
+
+.lh-28 {
+    line-height: 28px;
+}
+
 .bg-dark-beige {
     background-color: #F7eed6;
 }
@@ -200,14 +250,15 @@ hr {
 }
 
 .bg-green {
-    background-color: #034b46;
+    background-color: #034B46;
+    opacity: 0.95;
 }
 
 .btn {
     font-size: 16px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .btn-primary {
@@ -221,40 +272,62 @@ hr {
     letter-spacing: 2px;
     border: none;
     border-radius: 40px;
-    background-color: #1982db;
+    background-color: #0f3233;
     color: #ffffff;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #0362b4;
+    background-color: #0f3233;
     box-shadow: none;
 }
 
 .btn-outline-primary {
-    width: 120px;
+    width: 100%;
+    min-width: 120px;
+    max-width: 150px;
     border: 1px solid #ffffff;
     border-radius: 20px;
     color: #ffffff;
 }
 
+@media only screen and (min-width: 992px) {
+    .btn-outline-primary {
+        width: 150px;
+    }
+}
+
 .btn-outline-primary:hover,
-.btn-outline-primary:focus {
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn.btn-outline-primary:first-child:active {
+    border-color: #ffffff;
     background-color: #ffffff;
-    color: #20404c;
+    color: #0f3233;
 }
 
 .btn-outline-secondary {
-    width: 120px;
-    border: 1px solid #20404c;
+    width: 100%;
+    min-width: 120px;
+    max-width: 150px;
+    border: 1px solid #034b46;
     border-radius: 20px;
-    color: #20404c;
+    color: #0f3233;
 }
 
 .btn-outline-secondary:hover,
-.btn-outline-secondary:focus {
-    background-color: #20404c;
+.btn-outline-secondary:active,
+.btn-outline-secondary:focus,
+.btn.btn-outline-secondary:first-child:active{
+    border-color: #034b46;
+    background-color: #034b46;
     color: #ffffff;
+}
+
+@media only screen and (min-width: 992px) {
+    .btn-outline-secondary {
+        width: 150px;
+    }
 }
 
 .carousel-control.left {
@@ -338,8 +411,8 @@ nav.navbar {
 }
 
 nav.navbar .navbar-brand {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 nav.navbar .navbar-toggler {
@@ -374,9 +447,9 @@ nav.navbar .navbar-collapse {
     font-weight: 700;
     padding-top: 0;
     padding-bottom: 0;
-    font-size: 24px;
-    line-height: 36px;
-    letter-spacing: 1px;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: 2px;
     color: #ffffff !important;
 }
 
@@ -406,10 +479,15 @@ nav.navbar .navbar-collapse {
     }
 }
 
-@media (min-width: 920px) {
+@media (min-width: 992px) {
+    nav.navbar .navbar-brand {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
     .navbar-nav .nav-link {
-        font-size: 40px;
-        line-height: 60px;
+        font-size: 50px;
+        line-height: 80px;
     }
 }
 
@@ -440,7 +518,7 @@ nav.navbar .navbar-collapse {
     right: 0;
     bottom: 0;
     text-align: center !important;
-    background: #ddab57;
+    background: #034b46;
     opacity: 0;
     transition: opacity 0.35s ease;
 }
@@ -468,24 +546,19 @@ nav.navbar .navbar-collapse {
 }
 
 .navbar .navbar-collapse .navbar-nav {
-    margin-top: 70px;
+    margin-top: 100px;
     margin-right: initial !important;
     margin-bottom: auto
 }
 
-@media (min-width: 920px) {
+@media (min-width: 992px) {
     .navbar .navbar-collapse .navbar-nav {
         margin-top: 145px;
     }
 }
 
-@media (min-width: 920px) {
-    .navbar .navbar-collapse .navbar-nav {
-        margin-top: 75px;
-    }
-}
-
 .navbar .navbar-collapse .navbar-nav .nav-link {
+    font-family: 'Morion', 'sans-serif';
     color: #ffffff !important;
 }
 
@@ -494,22 +567,84 @@ nav.navbar .navbar-collapse {
     color: #0f3233 !important;
 }
 
-/* Header */
-#header .siegel {
+/* Hero and Header */
+#hero {
+    position: relative;
+    margin-top: 60px;
+}
+
+#hero picture img {
+    position: relative;
+    width: 100%;
+}
+
+#hero .siegel {
     position: absolute;
-    bottom: -65px;
+    bottom: -50px;
     left: 50%;
-    margin-left: -65px;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    z-index: 1;
+}
+
+#header {
+    background-color: #034B46;
+    opacity: 0.95;
+}
+
+#header span.text-uppercase {
+    font-size: 16px;
 }
 
 @media only screen and (min-width: 992px) {
-    #header .siegel {
-        position: absolute;
-        top: 30px;
+    #hero {
+        position: relative;
+        display: block;
+        margin: 90px auto 0;
+        width: 100%;
+        height: calc(100vh - 90px);
+        z-index: 1;
+    }
+
+    #hero picture img {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 90px;
+        width: fit-content;
+        height: calc(100vh - 90px);
+    }
+
+    #hero .siegel {
+        position: fixed;
+        top: 135px;
+        left: unset;
         right: 30px;
+        width: 130px;
+        height: 130px;
         margin-left: auto;
+        z-index: 1;
+    }
+
+    #header {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 90px);
+        z-index: 2;
+    }
+
+    #header span.text-uppercase {
+        font-size: 18px;
+    }
+
+    article {
+        position: relative;
+        background-color: #ffffff;
+        z-index: 2;
     }
 }
+
 
 /* Intro */
 #intro .line {
@@ -517,16 +652,16 @@ nav.navbar .navbar-collapse {
     margin: 20px auto;
     width: 2px;
     height: 50px;
-    background-color: #173f34;
+    background-color: #0f3233;
 }
 
 /* Leistungen */
 #leistungen .accordion-item {
-    border-top: 1px solid #0d222f;
+    border-top: 1px solid #0f3233;
 }
 
 #leistungen .accordion-flush .accordion-item:last-child {
-    border-bottom: 1px solid #0d222f;
+    border-bottom: 1px solid #0f3233;
 }
 
 #leistungen .accordion-button {
@@ -534,10 +669,10 @@ nav.navbar .navbar-collapse {
     padding-left: 0;
     padding-right: 0;
     font-size: 16px;
-    font-weight: 600;
-    line-height: 30px;
+    font-weight: 500;
+    line-height: 24px;
     background-color: #ffffff;
-    color: #20404c;
+    color: #0f3233;
     text-transform: uppercase;
     transition: none;
 }
@@ -547,26 +682,31 @@ nav.navbar .navbar-collapse {
 }
 
 #leistungen .accordion-button::after {
-    width: 40px;
-    height: 40px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
     background-image: url('../images/icon_plus.svg');
+    background-repeat: no-repeat;
     background-size: 20px 20px;
-    background-position-x: 10px;
-    background-position-y: 10px;
+    background-position-x: 0;
+    background-position-y: 0;
     background-color: #ffffff;
-    transition: none;
+    transition: transform 0.2s ease-in-out;
+    transform-origin: center center;
+    content: " "
 }
 
 #leistungen .accordion-button[aria-expanded="true"],
 #leistungen .accordion-button:hover {
     background-color: #ffffff;
-    color: #20404c;
+    color: #0f3233;
 }
 
 #leistungen .accordion-button[aria-expanded="true"]::after,
 #leistungen .accordion-button:hover::after {
     background-color: #ffffff;
     background-image: url('../images/icon_plus.svg');
+    transition: transform 0.2s ease-in-out;
 }
 
 #leistungen .accordion-button:not(.collapsed) {
@@ -576,27 +716,29 @@ nav.navbar .navbar-collapse {
 #leistungen .accordion-button:not(.collapsed)::after {
     background-image: url('../images/icon_minus.svg');
     background-position-x: 0;
-    background-position-y: 10px;
+    background-position-y: 0;
+    transform-origin: center center;
+    transform: rotate(-180deg);
 }
 
 @media only screen and (min-width: 576px) {
     #leistungen .accordion-button {
         padding-left: 0;
         font-size: 16px;
-        line-height: 40px;
-        letter-spacing: 0.1rem;
+        line-height: 24px;
+        letter-spacing: 2px;
     }
 
     #leistungen .accordion-button::after {
-        width: 40px;
-        height: 40px;
-        background-position-x: 20px;
-        background-position-y: 10px;
+        width: 20px;
+        height: 20px;
+        background-position-x: 0;
+        background-position-y: 0;
     }
 
     #leistungen .accordion-button:not(.collapsed)::after {
         background-position-x: 0;
-        background-position-y: 10px;
+        background-position-y: 0;
     }
 }
 
@@ -619,7 +761,7 @@ nav.navbar .navbar-collapse {
     #schritt .schritt {
         position: absolute;
         right: 100px;
-        margin-top: -200px;
+        margin-top: -220px;
         width: 50% !important;
     }
 }
@@ -628,10 +770,10 @@ nav.navbar .navbar-collapse {
 #ueberuns a.download:before {
     position: relative;
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background: url('../images/icon_arrow.svg') no-repeat;
-    background-size: 30px 30px;
+    background-size: 20px 20px;
     vertical-align: middle;
     content: '';
 }
@@ -654,12 +796,11 @@ nav.navbar .navbar-collapse {
 
 /* Impressum */
 body.imprint h4 {
-    font-family: 'Morion', 'sans-serif';
     font-size: 18px;
     font-weight: 500;
     line-height: 30px;
-    letter-spacing: 1px;
-    color: #0d222f;
+    letter-spacing: 2px;
+    color: #0f3233;
     text-transform: uppercase;
 }
 
@@ -669,14 +810,17 @@ body.imprint p {
 
 /* Footer */
 footer {
+    position: relative;
     height: 60px;
     font-size: 16px;
     line-height: 60px;
+    background-color: #ffffff;
+    z-index: 2;
 }
 
 footer p {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 footer a,
@@ -686,7 +830,7 @@ footer a:focus {
     font-weight: 500;
     text-decoration: none !important;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 @media only screen and (min-width: 992px) {
